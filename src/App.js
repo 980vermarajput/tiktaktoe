@@ -11,7 +11,7 @@ function app(){
   const[currentMove,setCurrentMove]=useState(0);
   const current=history[currentMove]
   const {winner,winningSquares}=calculateWinner(current.board);
-  
+
   const handleSquareClick=(position)=>{
       if(current.board[position]||winner)
           return;
@@ -36,11 +36,13 @@ function app(){
   }
   return(
     <div className="app">
-      <h1>TIK TAC TOE</h1>
+      <h1>TIK <span className="text-green">TAC</span> TOE</h1>
       <StatusFile winner={winner} current={current}/>
       <Board board={current.board} handleSquareClick={handleSquareClick} winningSquares={winningSquares}/>
-      <button type="button" onClick={resetGame}>Start New Game</button>
+      <button type="button" onClick={resetGame} className={`btn-reset ${winner?'active':''}`}>Start New Game</button>
+      <h2 className={{fontWeight:"normal"}}>Current Game History</h2>
       <History history={history} moveTo={moveTo} currentMove={currentMove}/>
+      <div className="bg-balls"/>
     </div>
   )
 };
