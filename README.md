@@ -1,4 +1,4 @@
-This is an React app of a game 
+This is a React based app of a game 
 TIKTACTOE 
 which is deployed on surge
 You can access it from
